@@ -2,6 +2,39 @@ import { INavData } from '@coreui/angular';
 
 export const navItems: INavData[] = [
   {
+    title: true,
+    name: 'Utenti'
+  },
+  {
+    name: 'Operatore',
+    url: '/theme/typography',
+    linkProps: { fragment: 'headings' },
+    iconComponent: { name: 'cilSmilePlus' } // as named in icon-subset.ts or default-name
+  },
+  {
+    name: 'Cliente',
+    url: '/theme/typography',
+    linkProps: { fragment: 'headings' },
+    iconComponent: { name: 'cilUserPlus' }
+  },
+  {
+    title: true,
+    name: 'Veicoli'
+  },
+  {
+    name: 'Moto',
+    url: '/theme/typography',
+    linkProps: { fragment: 'headings' },
+    iconComponent: { name: 'cilBike' }
+  }
+  /*,
+  {
+    title: true,
+    name: 'Utenti'
+  },
+
+
+  {
     name: 'Dashboard',
     url: '/dashboard',
     iconComponent: { name: 'cil-speedometer' },
@@ -32,7 +65,7 @@ export const navItems: INavData[] = [
   {
     name: 'Base',
     url: '/base',
-    iconComponent: { name: 'cil-puzzle' },
+    iconComponent: { name: 'cil-ike' },
     children: [
       {
         name: 'Accordion',
@@ -428,5 +461,5 @@ export const navItems: INavData[] = [
     url: 'https://coreui.io/angular/docs/',
     iconComponent: { name: 'cil-description' },
     attributes: { target: '_blank' }
-  }
+  }*/
 ];
