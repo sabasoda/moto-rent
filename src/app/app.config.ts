@@ -9,11 +9,11 @@ import {
   withViewTransitions
 } from '@angular/router';
 import { IconSetService } from '@coreui/icons-angular';
-import { mainRoutes } from './app-routing.module';
+import { routes } from './routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(mainRoutes,
+    provideRouter(routes,
       withRouterConfig({
         onSameUrlNavigation: 'reload'
       }),
@@ -22,8 +22,7 @@ export const appConfig: ApplicationConfig = {
         anchorScrolling: 'enabled'
       }),
       withEnabledBlockingInitialNavigation(),
-      withViewTransitions(),
-      withHashLocation()
+      withViewTransitions()
     ),
     IconSetService,
     provideAnimationsAsync()

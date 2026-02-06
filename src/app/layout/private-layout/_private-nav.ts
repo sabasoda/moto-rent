@@ -1,4 +1,5 @@
 import { INavData } from '@coreui/angular';
+import { UserComponent } from '../../views/rent-components/user/user.component';
 
 export const navItems: INavData[] = [
   {
@@ -7,9 +8,8 @@ export const navItems: INavData[] = [
   },
   {
     name: 'Operatore',
-    url: '/theme/typography',
-    linkProps: { fragment: 'headings' },
-    iconComponent: { name: 'cilSmilePlus' } // as named in icon-subset.ts or default-name
+    url: '/contract/user',
+    iconComponent: { name: 'cil-user' }
   },
   {
     name: 'Cliente',
