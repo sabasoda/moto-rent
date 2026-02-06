@@ -9,11 +9,11 @@ import {
   withViewTransitions
 } from '@angular/router';
 import { IconSetService } from '@coreui/icons-angular';
-import { routes } from './app.routes';
+import { mainRoutes } from './app-routing.module';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes,
+    provideRouter(mainRoutes,
       withRouterConfig({
         onSameUrlNavigation: 'reload'
       }),
