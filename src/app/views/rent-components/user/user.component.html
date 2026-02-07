@@ -1,1 +1,20 @@
 <p>user works!</p>
+<app-generic-table
+  [data]="users"
+  [columns]="[
+    { field: 'name', header: 'Nome' },
+    { field: 'email', header: 'Email' },
+    { field: 'birthDate', header: 'Data di nascita', template: dateTemplate },
+    { header: 'Azioni', template: actionTemplate }
+  ]"
+  [pageSize]="5">
+</app-generic-table>
+
+<ng-template #actionTemplate let-row>
+  <button class="table-action-btn" (click)="edit(row)">Modifica</button>
+  <button class="table-action-btn delete" (click)="delete(row)">Elimina</button>
+</ng-template>
+
+<ng-template #dateTemplate let-row> 
+  {{ row.birthDate | date:'dd/MM/yyyy' }} 
+</ng-template>

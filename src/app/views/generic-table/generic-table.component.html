@@ -1,0 +1,80 @@
+<div class="global-filter">
+  <input
+    type="text"
+    placeholder="Cerca in tutta la tabella..."
+    [(ngModel)]="globalFilter"
+    (input)="applyFilters()"
+  />
+</div>
+
+<table class="table" cTable>
+  <thead>
+    <tr>
+      @for (col of columns; track $index) {
+        <th (click)="sort(col)">
+          {{ col.header }}
+          <span *ngIf="col.field === sortField">
+            {{ sortDirection === 'asc' ? '▲' : '▼' }}
+          </span>
+        </th>
+      }
+    </tr>
+  </thead>
+
+  <tbody>
+    @for (row of paginatedData; track $index) {
+
+      <!-- Riga principale -->
+      <tr class="main-row">
+        @for (col of columns; track $index; let i = $index) {
+          <td [class.first-col]="i === 0">
+            <ng-container *ngIf="col.template; else defaultCell">
+              <ng-container
+                *ngTemplateOutlet="col.template; context: { $implicit: row }">
+              </ng-container>
+            </ng-container>
+
+            <ng-template #defaultCell>
+              {{ col.field ? row[col.field] : '' }}
+            </ng-template>
+          </td>
+        }
+      </tr>
+
+      <!-- Riga dettagli mobile -->
+      <tr class="mobile-details">
+        <td colspan="100%">
+          <details>
+            <summary>Dettagli</summary>
+
+            <div class="details-content">
+              @for (col of columns; track $index) {
+                <div class="detail-row">
+                  <strong>{{ col.header }}:</strong>
+                  <span>
+                    <ng-container *ngIf="col.template; else defaultDetailCell">
+                      <ng-container
+                        *ngTemplateOutlet="col.template; context: { $implicit: row }">
+                      </ng-container>
+                    </ng-container>
+
+                    <ng-template #defaultDetailCell>
+                      {{ col.field ? row[col.field] : '' }}
+                    </ng-template>
+                  </span>
+                </div>
+              }
+            </div>
+          </details>
+        </td>
+      </tr>
+
+    }
+  </tbody>
+</table>
+
+<div class="pagination">
+  <button (click)="prevPage()" [disabled]="currentPage === 1">Prev</button>
+  <span>Pagina {{ currentPage }} / {{ totalPages }}</span>
+  <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+</div>

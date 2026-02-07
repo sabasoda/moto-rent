@@ -5,6 +5,7 @@ import { LoginComponent } from './login.component';
 import { IconModule } from '@coreui/icons-angular';
 import { IconSetService } from '@coreui/icons-angular';
 import { iconSubset } from '../../../icons/icon-subset';
+import { provideRouter } from '@angular/router';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -14,7 +15,7 @@ describe('LoginComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
     imports: [FormModule, CardModule, GridModule, ButtonModule, IconModule, LoginComponent],
-    providers: [IconSetService]
+    providers: [IconSetService, provideRouter([])]
 })
     .compileComponents();
   });

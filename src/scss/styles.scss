@@ -21,3 +21,30 @@
 // We use those styles to show code examples, you should remove them in your application.
 @use "examples";
 
+.table-action-btn {
+  padding: 6px 12px;
+  background: #0d6efd;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  margin-right: 6px;
+}
+
+.table-action-btn:hover {
+  background: #0b5ed7;
+}
+
+.table-action-btn:active {
+  transform: scale(0.97);
+}
+
+.table-action-btn.delete {
+  background: #dc3545;
+}
+
+.table-action-btn.delete:hover {
+  background: #bb2d3b;
+}
