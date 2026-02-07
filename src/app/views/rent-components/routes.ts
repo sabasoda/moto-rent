@@ -4,10 +4,14 @@ export const routes: Routes = [
   {
     path: '',
     data: {
-      title: 'Contract'
+      title: 'Rent Components'
     },
     children: [
-
+      // [ROUTING-TIP] Dichiarazione di rotte non globali, 
+      // collegate al gruppo di componenti: rent-components
+      // Una volta dichiarato questo file con le rotte che servono, dobbiamo rendere visibili queste 
+      // rotte al routing globale, andando quindi nelle routes del padre di questa rotta, quindi nella principale
+      // che si trova sotto scr/app
       {
         path: '',
         redirectTo: 'contract',

@@ -41,6 +41,12 @@ export const routes: Routes = [
         path: 'dashboard',
         loadChildren: () => import('./views/dashboard/routes').then((m) => m.routes)
       },
+      // [ROUTING-TIP] Rendiamo visibili così al router globale tutte le sotto-rotte
+      // di rent-components
+      {
+        path: 'rent-components',
+        loadChildren: () => import('./views/rent-components/routes').then((m) => m.routes)
+      },
       {
         path: 'theme',
         loadChildren: () => import('./views/theme/routes').then((m) => m.routes)
